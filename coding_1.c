@@ -50,12 +50,12 @@ int main(){
 	}
 	x=0;
 /*judge what is the final state and decide appending how many zero-input for system*/
-	int m ;
-	while(!state[x] && x<6){
-		x=x+1;
-	}
-	m=6-x;
-	x=0;
+	int m=6 ;
+	// while(!state[x] && x<6){
+		// x=x+1;
+	// }
+	// m=6-x;
+	// x=0;
 	int* m_zero_vector = calloc(m,sizeof(int)); //m=0 maybe cause some problems****************
 	int* m_x1 = calloc(m,sizeof(int));
 	int* m_x2 = calloc(m,sizeof(int));

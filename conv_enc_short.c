@@ -39,10 +39,10 @@ int main(){
     int m=6;//number of registers
     int state=0;
     int MSB=1;
+    int tempa=0;
     for(int i=0;i<m-1;i++){
         MSB<<=1;
     }
-
     FILE *fpr;
     fpr = fopen("Sim.txt","r");
     if(fpr==NULL){
@@ -66,15 +66,15 @@ int main(){
     FILE* fpw;
     fpw=fopen("x.txt","w");
     int MSB_temp=MSB;
-    //x1=1+d2+d3+d5+d6
-    //x2=1+d +d2+d3+d6
+    //x1=1+   d2+d3+d5+d6
+    //x2=1+d1+d2+d3+   d6
     //d=state(32)=MSB d2=state(16)=MSB>>1...d3=8>>2 d4=4>>3 d5=2>>4 d6=1>>5
-    for(int i=0;i<L+m;i++){
+    for(int i=0;i<L+m;i++){ //i=0 will make first state '000000' generate output x1 x2 when input is 1 or 0
         x1=u[i]^(16&state?1:0)^(8&state?1:0)^(2&state?1:0)^(1&state?1:0);
         x2=u[i]^(32&state?1:0)^(16&state?1:0)^(8&state?1:0)^(1&state?1:0);
         
         printf("state=");
-        for(int k=0;MSB_temp;MSB_temp>>=1){
+        for(int k=0;MSB_temp;MSB_temp>>=1){ //out of for loop when MSB_temp=1
             printf("%d",(state&MSB_temp)?1:0);
         }
         printf("\n");

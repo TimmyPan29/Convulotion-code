@@ -1,1 +1,5 @@
-1000 %L: Truncation Length
+100  %N: the number of decode bits
+32    %L: truncation window length
+1.0	  %SNR: bit singal-to-noise ratio (dB)
+-2023 %:Seed: a negative integer
+0	  %0=>Hard-decision; 1=>Soft-decision
